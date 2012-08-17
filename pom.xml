@@ -35,13 +35,11 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.iharder</groupId>
             <artifactId>base64</artifactId>
             <version>2.3.8</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -58,7 +56,6 @@
                         </goals>
                         <phase>verify</phase>
                         <configuration>
-                            <includePom>true</includePom>
                             <forceCreation>true</forceCreation>
                         </configuration>
                     </execution>
