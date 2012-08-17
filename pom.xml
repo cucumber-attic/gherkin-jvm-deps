@@ -58,6 +58,7 @@
                         </goals>
                         <phase>verify</phase>
                         <configuration>
+                            <includePom>true</includePom>
                             <forceCreation>true</forceCreation>
                         </configuration>
                     </execution>
