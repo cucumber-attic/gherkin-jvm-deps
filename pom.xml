@@ -28,18 +28,19 @@
         <connection>scm:git:git://github.com/cucumber/gherkin-jvm-deps.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/gherkin-jvm-deps.git</developerConnection>
         <url>git://github.com/cucumber/gherkin-jvm-deps.git</url>
-      <tag>v1.0.0</tag>
-  </scm>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.iharder</groupId>
             <artifactId>base64</artifactId>
             <version>2.3.8</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
