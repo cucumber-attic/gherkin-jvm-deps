@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>info.cukes</groupId>
     <artifactId>gherkin-jvm-deps</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>Gherkin Repackaged Dependencies</name>
     <url>https://github.com/cucumber/gherkin-jvm-deps</url>
     <parent>
