@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.cucumber</groupId>
     <artifactId>gherkin-jvm-deps</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>Gherkin Repackaged Dependencies</name>
     <url>https://github.com/cucumber/gherkin-jvm-deps</url>
     <parent>
@@ -28,6 +28,7 @@
         <connection>scm:git:git://github.com/cucumber/gherkin-jvm-deps.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/gherkin-jvm-deps.git</developerConnection>
         <url>git://github.com/cucumber/gherkin-jvm-deps.git</url>
+    <tag>v1.0.4</tag>
   </scm>
     <dependencies>
         <dependency>
