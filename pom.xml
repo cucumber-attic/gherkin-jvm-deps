@@ -28,8 +28,7 @@
         <connection>scm:git:git://github.com/cucumber/gherkin-jvm-deps.git</connection>
         <developerConnection>scm:git:git@github.com:cucumber/gherkin-jvm-deps.git</developerConnection>
         <url>git://github.com/cucumber/gherkin-jvm-deps.git</url>
-    <tag>HEAD</tag>
-  </scm>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -44,6 +43,18 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Automatic-Module-Name>${project.Automatic-Module-Name}</Automatic-Module-Name>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -64,7 +75,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -101,6 +112,7 @@
                         <configuration>
                             <includeDependencySources>true</includeDependencySources>
                             <additionalparam>-Xdoclint:none</additionalparam>
+                            <source>1.8</source>
                         </configuration>
                     </execution>
                 </executions>
@@ -141,4 +153,13 @@
             </build>
         </profile>
     </profiles>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.custom.encoding>UTF-8</project.custom.encoding>
+        <project.build.sourceEncoding>${project.custom.encoding}</project.build.sourceEncoding>
+        <project.build.outputEncoding>${project.custom.encoding}</project.build.outputEncoding>
+        <project.reporting.outputEncoding>${project.custom.encoding}</project.reporting.outputEncoding>
+        <project.Automatic-Module-Name>io.cucumber.gherkin.jvm.deps</project.Automatic-Module-Name>
+    </properties>
 </project>
