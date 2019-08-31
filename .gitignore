@@ -1,8 +1,8 @@
-/.idea/
-target/
-dependency-reduced-pom.xml
+*.iml
 *.ipr
 *.iws
-*.iml
+.idea/
+dependency-reduced-pom.xml
 pom.xml.releaseBackup
 release.properties
+target/
