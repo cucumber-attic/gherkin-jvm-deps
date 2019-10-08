@@ -1,27 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.cucumber</groupId>
+
+    <parent>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-parent</artifactId>
+        <version>2.0.2</version>
+    </parent>
+
     <artifactId>gherkin-jvm-deps</artifactId>
-    <version>1.1.6-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <name>Gherkin Repackaged Dependencies</name>
     <url>https://github.com/cucumber/gherkin-jvm-deps</url>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
             <comments>The License used by Gson</comments>
-        </license>
-        <license>
-            <name>Public Domain</name>
-            <url>http://en.wikipedia.org/wiki/Public_domain</url>
-            <distribution>repo</distribution>
-            <comments>The Base64 code is in the Public Domain</comments>
         </license>
     </licenses>
     <scm>
@@ -34,11 +30,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>net.iharder</groupId>
-            <artifactId>base64</artifactId>
-            <version>2.3.8</version>
         </dependency>
     </dependencies>
     <build>
@@ -132,14 +123,11 @@
                         </goals>
                         <configuration>
                             <createSourcesJar>true</createSourcesJar>
+                            <shadeSourcesContent>true</shadeSourcesContent>
                             <relocations>
                                 <relocation>
                                     <pattern>com.google.gson</pattern>
                                     <shadedPattern>gherkin.deps.com.google.gson</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>net.iharder</pattern>
-                                    <shadedPattern>gherkin.deps.net.iharder</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
@@ -149,29 +137,21 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
                 <executions>
                     <execution>
-                        <id>javadoc-jar</id>
+                        <id>attach-javadocs</id>
                         <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                         <configuration>
                             <includeDependencySources>true</includeDependencySources>
+                            <failOnError>false</failOnError>
                             <additionalparam>-Xdoclint:none</additionalparam>
                             <source>1.8</source>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.2</version>
-                <configuration>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
-                </configuration>
             </plugin>
         </plugins>
     </build>
